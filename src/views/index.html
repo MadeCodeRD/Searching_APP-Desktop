@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/index.css">
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <title>Search App</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="searchAppContainer">
+      <div class="header">
+        <img src="../imgs/logo.PNG" alt="Logo">
+        <h1>Search App</h1>
+      </div>
+      <div class="infoContainer">
+        <input class="input" type="text" name="searchInfo" id="searchInfo" placeholder="Informacion a buscar">
+        <input class="input" type="text" name="domain" id="domain" placeholder="Dominio">
+      </div>
+      <div class="searchEngineContainer">
+        <div class="searchEngine">
+          <label for="searchEngine">Google.com</label>
+        </div>
+        <div class="searchEngine">
+          <label for="searchEngine">Bing.com</label>
+
+        </div>
+        <div class="searchEngine">
+          <label for="searchEngine">Yahoo.com</label>
+        </div>
+        <div class="searchEngine">
+          <label for="searchEngine">AOL.com</label>
+
+        </div>
+        <div class="searchEngine">
+          <label for="searchEngine">Ecosia.org</label>
+        </div>
+      </div>
+      <div class="doneContainer">
+        <button class="button buttonSearch" id="searchButton"><iconify-icon
+            icon="material-symbols:search-check"></iconify-icon></button>
+        <button class="button buttonHistory"><iconify-icon icon="material-symbols:history"></iconify-icon></button>
+      </div>
+    </div>
+  </div>
+  <div class="peeek-loading" id="peeek-loading">
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header" id="header-container">
+        <span class="close" id="closeResultModal">&times;</span>
+        <div id="modal-header"></div>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="../js/indexRenderer.js"></script>
+</body>
+
+</html>

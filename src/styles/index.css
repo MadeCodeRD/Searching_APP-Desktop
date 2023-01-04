@@ -1,0 +1,377 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/*Contenedores globales*/
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+.input {
+  padding: 0.7rem;
+  width: 15rem;
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+  text-align: center;
+}
+
+.button {
+  width: 8rem;
+  height: 3rem;
+  font-size: 2rem;
+  color: white;
+  background-color: black;
+  border-radius: 0.9rem;
+  cursor: pointer;
+  margin: 1.5rem;
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.searchAppContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.header img {
+  width: 13rem;
+}
+
+.header h1 {
+  font-size: 3rem;
+}
+
+.searchEngineContainer {
+  width: 26rem;
+  height: 15rem;
+  overflow: auto;
+}
+
+.searchEngine {
+  background: rgb(255, 255, 0);
+  background: linear-gradient(90deg, rgba(255, 255, 0, 1) 0%, rgba(255, 239, 0, 1) 29%, rgba(255, 106, 0, 1) 100%);
+  width: 22rem;
+  height: 3.5rem;
+  border-radius: 0.7rem;
+  font-size: 1.5rem;
+  margin: 1rem;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.searchEngine .regular-checkbox {
+  -webkit-appearance: none;
+  background-color: #fafafa;
+  border: 1px solid #cacece;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 9px;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+}
+
+.regular-checkbox:checked {
+  background-color: #0099ff;
+  border: 1px solid #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.regular-checkbox:checked:after {
+  content: '\2714';
+  font-size: 14px;
+  position: absolute;
+  top: 0px;
+  left: 3px;
+  color: #ffffff;
+}
+
+.buttonSearch {
+  background-color: #05d205 !important;
+  transition: 0.3s;
+  border: none;
+}
+
+.buttonSearch:hover {
+  background-color: #01b216 !important;
+  transition: 0.3s;
+}
+
+.buttonHistory {
+  border: none;
+  transition: 0.3s;
+  background-color: #0099ff !important;
+}
+
+.buttonHistory:hover {
+  transition: 0.3s;
+  background-color: #0565e2 !important;
+}
+
+/*---------------------------------------------------------------------------*/
+
+.peeek-loading {
+  display: none;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.493);
+  z-index: 10000;
+}
+.peeek-loading ul {
+  position: absolute;
+  left: calc(50% - 0.7em);
+  top: calc(50% - 4.2em);
+  display: inline-block;
+  text-indent: 2.8em;
+  color: transparent;
+}
+.peeek-loading ul li:after, .peeek-loading ul:after {
+  width: 1.4em;
+  height: 1.4em;
+  background: rgb(255, 255, 0);
+  background: linear-gradient(90deg, rgba(255, 255, 0, 1) 0%, rgba(255, 239, 0, 1) 29%, rgba(255, 106, 0, 1) 100%);
+  border-radius: 100%;
+}
+.peeek-loading ul li:after, .peeek-loading ul:after {
+  content: "";
+  display: block;
+}
+.peeek-loading ul:after {
+  position: absolute;
+  top: 2.8em;
+}
+.peeek-loading li {
+  position: absolute;
+  padding-bottom: 5.6em;
+  top: 0;
+  left: 0;
+}
+.peeek-loading li:nth-child(1) {
+  transform: rotate(0deg);
+  animation-delay: 0.125s;
+}
+.peeek-loading li:nth-child(1):after {
+  animation-delay: 0.125s;
+}
+.peeek-loading li:nth-child(2) {
+  transform: rotate(36deg);
+  animation-delay: 0.25s;
+}
+.peeek-loading li:nth-child(2):after {
+  animation-delay: 0.25s;
+}
+.peeek-loading li:nth-child(3) {
+  transform: rotate(72deg);
+  animation-delay: 0.375s;
+}
+.peeek-loading li:nth-child(3):after {
+  animation-delay: 0.375s;
+}
+.peeek-loading li:nth-child(4) {
+  transform: rotate(108deg);
+  animation-delay: 0.5s;
+}
+.peeek-loading li:nth-child(4):after {
+  animation-delay: 0.5s;
+}
+.peeek-loading li:nth-child(5) {
+  transform: rotate(144deg);
+  animation-delay: 0.625s;
+}
+.peeek-loading li:nth-child(5):after {
+  animation-delay: 0.625s;
+}
+.peeek-loading li:nth-child(6) {
+  transform: rotate(180deg);
+  animation-delay: 0.75s;
+}
+.peeek-loading li:nth-child(6):after {
+  animation-delay: 0.75s;
+}
+.peeek-loading li:nth-child(7) {
+  transform: rotate(216deg);
+  animation-delay: 0.875s;
+}
+.peeek-loading li:nth-child(7):after {
+  animation-delay: 0.875s;
+}
+.peeek-loading li:nth-child(8) {
+  transform: rotate(252deg);
+  animation-delay: 1s;
+}
+.peeek-loading li:nth-child(8):after {
+  animation-delay: 1s;
+}
+.peeek-loading li:nth-child(9) {
+  transform: rotate(288deg);
+  animation-delay: 1.125s;
+}
+.peeek-loading li:nth-child(9):after {
+  animation-delay: 1.125s;
+}
+.peeek-loading li:nth-child(10) {
+  transform: rotate(324deg);
+  animation-delay: 1.25s;
+}
+.peeek-loading li:nth-child(10):after {
+  animation-delay: 1.25s;
+}
+.peeek-loading li {
+  animation: dotAnimation 2.5s infinite;
+}
+@keyframes dotAnimation {
+  0%, 55%, 100% {
+    padding: 0 0 5.6em 0;
+  }
+  5%, 50% {
+    padding: 2.8em 0;
+  }
+}
+.peeek-loading li:after {
+  animation: dotAnimationTwo 2.5s infinite;
+}
+@-webkit-keyframes dotAnimationTwo {
+  0%, 55%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  5%, 50% {
+    opacity: 0.5;
+    transform: scale(0.5);
+  }
+}
+/*---------------------------------------------------------------------------*/
+/*SHOW MODAL WITH RESULT INFO*/
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+ /* padding-top: 100px;  Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: 2rem auto;
+  padding: 1rem;
+  border: 1px solid #888;
+  width: 60%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  text-align: center;
+  white-space: wrap;
+}
+
+.modal-header h2{
+  padding: 1.1rem;
+}
+
+.modal-body p{
+  font-size: 1.2rem;
+  padding: 1.5rem;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.webResults{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.webResults:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+/*ScrollBar*/
+/*----------------------------------------------------------*/
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 1rem;
+}
+::-webkit-scrollbar-track {
+  border-radius: 1rem;
+  background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background: #888; 
+}
+::-webkit-scrollbar-thumb:hover {
+  border-radius: 1rem;
+  background: #555; 
+}
+/*----------------------------------------------------------*/
