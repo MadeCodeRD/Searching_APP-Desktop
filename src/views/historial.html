@@ -16,16 +16,29 @@
     <div class="historicalContainer">
       <div class="headerContainer">
         <div class="historicalTitle">
-          <h1>Historial de Busqueda</h1>
+          <h1>Historial de Busqueda</h1>  
         </div>
         <div class="searchContainer">
+          <button class="button" id="deleteAll"><iconify-icon icon="ion:trash"></iconify-icon></button>
           <input class="input" type="text" id="searchInput" name="searchInput" placeholder="Filtrar por: dominio/busqueda ">
-          <button class="button" id="emojiIcon">🤔</button>
+          <div class="button" id="emojiIcon">🤔</div>
         </div>
       </div>
       <div class="cardsContainer" id="cardsContainer"></div>
     </div>
   </div>
+
+  <!--MODALLL-->
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" id="closeModalSpan">&times;</span>
+     <div id="modalDetails" class="modalDetails"></div>
+    </div>
+  </div>
+
 
   <script src="../js/historialPage.js"></script>
   

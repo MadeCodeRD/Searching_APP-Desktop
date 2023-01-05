@@ -37,6 +37,8 @@ const createMainWindow = () => {
     },
   });
 
+ 
+
   history.webContents.on('did-finish-load', async function () {
     const results = await getDbWebResult();
     ACTIONS.showDbWebResult(history, results);
@@ -48,6 +50,14 @@ const createMainWindow = () => {
       ACTIONS.provokeRender(history,value);
     }
 
+  });
+
+  ipcMain.on('dialog:deleteAll', async (event, value) => {
+    const result = await handleDeleteAll();
+    if(result){
+      ACTIONS.provokeRender(history);
+    }
+      
   });
 
   history.on('close', (e)=> {
@@ -70,6 +80,7 @@ const createMainWindow = () => {
       preload: path.join(__dirname, 'preloads/indexPreload.js'),
     },
   });
+
 
   mainWindow.on('close', (e)=> {
       app.quit();
@@ -179,6 +190,11 @@ const getDbWebResult = async () => {
   return results;
 };
 
+const DeleteAllWebResult = async ()=>{
+  const result = await historialSchema.deleteMany({});
+  return result;
+}
+
 const deleteWebResult = async (searchId) => {
   const result = await historialSchema.deleteOne({ _id: searchId });
   return result;
@@ -200,6 +216,26 @@ async function handleDelete(value) {
     return;
   } else {
     const result = await deleteWebResult(value);
+    return result;
+  }
+}
+
+async function handleDeleteAll() {
+  const options = {
+    type: 'question',
+    buttons: ['Cancel', 'Delete'],
+    defaultId: 0,
+    title: 'Eliminar Todo',
+    message: 'Do you want to do this?',
+    detail: 'This will delete all the search',
+  };
+
+  const result = await dialog.showMessageBox(options);
+
+  if (options.buttons[result.response] === 'Cancel') {
+    return;
+  } else {
+    const result = await DeleteAllWebResult();
     return result;
   }
 }
