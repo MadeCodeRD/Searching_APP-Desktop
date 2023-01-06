@@ -10,11 +10,9 @@ const MESSAGES = {
 
 async function getWebResults(infoSearch, domainSearch) {
   if (!infoSearch || !domainSearch) {
-    console.log(MESSAGES.INVALID_USER_VALUES);
+    console.error(MESSAGES.INVALID_USER_VALUES);
     return;
   }
-
-  console.log('Web Scrapper Running: ');
 
   const userAgent = `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36`;
 
@@ -28,8 +26,7 @@ async function getWebResults(infoSearch, domainSearch) {
   try {
 
     const result = await openWebBrowser({ userValues, searchEngines, userAgent });
-    //const date = new Date();
-    //date: date.toLocaleString();
+    
     return {
       ...userValues,
       search: result,
@@ -53,7 +50,7 @@ function getSearchEngines(domain) {
       startPage: 1,
       endPage: 3,
       nextPage: '#pnnext',
-      regexToMatch: `\\b${domain}\\b`,
+      regexToMatch: `(?<=(\/\/|[\\w\\.]))\\b${domain}\\b`,
     },
 
     {
@@ -65,7 +62,7 @@ function getSearchEngines(domain) {
       endPage: 3,
       searchButton: '#sb_form_go',
       nextPage: `a.sb_pagN.sb_pagN_bp.b_widePag.sb_bp`,
-      regexToMatch: `\\b${domain}\\b`,
+      regexToMatch: `(?<=(\/\/|[\\w\\.]))\\b${domain}\\b`,
     },
 
     {
@@ -78,7 +75,7 @@ function getSearchEngines(domain) {
       endPage: 3,
       searchButton: '#ybar-search',
       nextPage: `a.next`,
-      regexToMatch: `\\b2f${domain}\\b|\\b${domain}\\b`,
+      regexToMatch: `(?<=(\/\/|[\\w\\.]))\\b${domain}\\b|\\b%2f%2f${domain}\\b`,
     },
 
     {
@@ -91,7 +88,7 @@ function getSearchEngines(domain) {
       endPage: 3,
       searchButton: '#header-form-search-button',
       nextPage: `a.next`,
-      regexToMatch: `\\b2f${domain}\\b|\\b${domain}\\b`,
+      regexToMatch: `(?<=(\/\/|[\\w\\.]))\\b${domain}\\b|\\b%2f%2f${domain}\\b`,
     },
 
     {
@@ -105,7 +102,7 @@ function getSearchEngines(domain) {
       searchButton:
         'button[data-test-id="search-form-submit"][icon-class="searchf-form__submit-icon"]',
       nextPage: `a[aria-label="Next page"]`,
-      regexToMatch: `\\b${domain}\\b`,
+      regexToMatch: `(?<=(\/\/|[\\w\\.]))\\b${domain}\\b`,
     },
   ];
 }
@@ -164,7 +161,7 @@ async function webScrapper({ page, userAgent, userValues, searchEngine }) {
             searchEngine.searchLinksContainer
           );
 
-          const regexToMatch = new RegExp(searchEngine.regexToMatch, 'gi');
+          const regexToMatch = new RegExp(searchEngine.regexToMatch, 'i');
 
           for (const url of urls) {
             let link = url.href;

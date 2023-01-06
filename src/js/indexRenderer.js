@@ -8,6 +8,7 @@ const modalHeader = document.querySelector('#modal-header');
 const modalBody = document.querySelector('#modal-body');
 const headerContainer = document.querySelector('#header-container');
 const initalValues = document.querySelector('#intialValues');
+const historyButton = document.querySelector('#buttonHistory');
 
 closeButton_resultModal.onclick = function () {
   resultModal.style.display = 'none';
@@ -89,3 +90,8 @@ const showWebResult = (cssProperty, isError, webResult) => {
     showSuccessWebResult(webResult);
   }
 };
+
+historyButton.addEventListener('click', event=>{
+    window.searchInfo.showHistoryWindow();
+    console.log('clicked!');
+});

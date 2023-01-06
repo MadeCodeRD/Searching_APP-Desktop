@@ -108,7 +108,7 @@ button[class="button"]:hover{
 
 }
 
-.historicalContainer .cardsContainer .card2 {
+/* .historicalContainer .cardsContainer .card2 {
   width: 25rem;
   height: 8rem;
   overflow: hidden;
@@ -118,7 +118,7 @@ button[class="button"]:hover{
   transition: 0.5s;
   margin: 1rem;
   
-}
+} */
 .historicalContainer .cardsContainer .card {
   transition: 1.2s;
   margin: 1rem;
@@ -133,27 +133,21 @@ button[class="button"]:hover{
   display: flex;
   flex-direction: column;
   align-items: center;
- 
-  
 }
 
-.historicalContainer .cardsContainer .infoCardContainer p {
-  font-size: 1.3rem;
+.historicalContainer .cardsContainer .infoCardContainer .infoDomain{
   text-align: center;
-  margin-top: 0.5rem;
-  font-weight: bold;
- 
-}
-
-.infoDomain{
-  font-weight: bold;
+  word-wrap: break-word;
   font-size: 1.4rem;
-  text-align: center;
-  text-shadow: 1px 1px 2px black;
-  padding-top: 0.5rem;
+  width: 20rem;
+  margin: 0.5rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
 }
-
-.historicalContainer .cardsContainer .infoCardContainer .infoSearched {
+.historicalContainer .cardsContainer .infoCardContainer .infoSearched{
   text-align: center;
   word-wrap: break-word;
   font-size: 1.2rem;
@@ -163,11 +157,10 @@ button[class="button"]:hover{
   text-shadow: 1px 1px 2px gray;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  overflow: auto;  
+  overflow: auto;
 }
+
+
 
 .historicalContainer .cardsContainer .searchEngineResult {
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
@@ -251,14 +244,12 @@ button[class="button"]:hover{
   color: white;
 }
 
-
-
 /***********MODAL****************/
 
 /* The Modal (background) */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
+  display: none; 
+  position: fixed; 
   z-index: 1; /* Sit on top */
   padding-top: 100px; /* Location of the box */
   left: 0;
@@ -309,3 +300,4 @@ button[class="button"]:hover{
  font-weight: bold;
   
 }
+

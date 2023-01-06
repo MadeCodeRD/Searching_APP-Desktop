@@ -59,8 +59,8 @@ function webResultRenderer(webResultList) {
     cardInfo += `
     <div class="card">
     <div class="infoCardContainer">
-      <p class="infoDomain">Dominio: ${card.domain}hdhjsdfhsdfhdfjdfjdfhksdghfjhgfdgfdsjdfdfhgsdfhgsdfvdskfdsjfdgfdhfdsgjf dfhdsjhfd  dddhfghdfgsdh dh d fhdghfdsg  dhd fdhfdsjfdsghfd ghd dhfdhfdgh</p>
-      <p class="infoSearched">Busqueda: ${card.query}dsjhsfdfgdhhdhsksdgdfgdsfjhsdkfdhfdfdkhfgdhfddkfhi dxkfehfdjfhdjfdjdshjkhdjhdfdf dkfhdkfhdkfhdflhdskfdfdklfjf dfdfdsfsdfd</p>
+      <p class="infoDomain">Dominio: ${card.domain}</p>
+      <p class="infoSearched">Busqueda: ${card.query}</p>
     </div>
     <div class="searchEngineResult" id="${card._id}">`;
 
