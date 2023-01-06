@@ -39,6 +39,7 @@ const hideShowLoading = (cssProperty) => {
 };
 
 const showModalError = () => {
+  headerContainer.style.backgroundImage = 'none';
   modalHeader.innerHTML = '';
   const title = `<h2>Oops! Something went wrong!</h2>`;
   headerContainer.style.backgroundColor = '#DC143C';
@@ -52,6 +53,7 @@ const showModalError = () => {
 };
 
 const showSuccessWebResult = (webResult) => {
+
   modalHeader.innerHTML = '';
   const title = `<h2>Resultados de la busqueda!</h2>`;
   headerContainer.style.backgroundImage = `linear-gradient(90deg, rgba(255, 255, 0, 1) 0%, rgba(255, 239, 0, 1) 29%, rgba(255, 106, 0, 1) 100%)`;
@@ -93,5 +95,4 @@ const showWebResult = (cssProperty, isError, webResult) => {
 
 historyButton.addEventListener('click', event=>{
     window.searchInfo.showHistoryWindow();
-    console.log('clicked!');
 });
